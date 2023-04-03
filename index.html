@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Deploy your websites in less than 60 seconds."
+    />
+    <meta property="og:title" content="Find Course... " />
+    <meta property="og:description" content="Find Course... " />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="http://" />
+    <meta property="og:url" content="https://Team.com" />
+    <title>Find Course - Go Online for Just $9</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="nav collapsible">
+        <!-- <a class="nav__brand" href="/"><img src="images/logo.svg" alt="" /></a> -->
+        <svg class="icon icon--white nav__toggler">
+          <use href="images/sprite.svg#menu"></use>
+        </svg>
+        <ul class="list nav__list collapsible__content">
+          <li class="nav__item"><a href="#">Hosting</a></li>
+          <li class="nav__item"><a href="#">VPS</a></li>
+          <li class="nav__item"><a href="#">Domain</a></li>
+          <li class="nav__item"><a href="#">Pricing</a></li>
+        </ul>
+      </nav>
+    </header>
+    <section class="block block--dark block--skewed-left hero">
+      <div class="container grid grid--1x2">
+        <header class="block__header hero__content">
+          <h1 data-aos="fade-right" class="block__heading">
+            Find the Right Course of your choice
+          </h1>
+          <p class="hero__tagline">
+            Start Learning and Stop Searching.
+          </p>
+          <a href="" class="btn btn--accent btn--stretched">Get Started</a>
+        </header>
+        <picture data-aos="zoom-in">
+          <source
+            type="image/webp"
+            srcset="images/banner.webp 1x, images/banner@2x.webp 2x"
+          />
+          <source
+            type="image/png"
+            srcset="images/banner.png 1x, images/banner@2x.png 2x"
+          />
+          <img class="hero__image" src="images/banner.png" alt="" />
+        </picture>
+      </div>
+    </section>
+    <section data-aos="fade-up" class="block container block-domain">
+      <header class="block__header">
+        <h2>Starting at $9 per month</h2>
+        <p>
+          Start Searching for the course Now!
+        </p>
+      </header>
+
+      <div class="input-group">
+        <button id="voice-input-btn">
+          <i class="fa fa-microphone"></i>
+        </button>
+        <input
+          type="text"
+          class="input"
+          placeholder="Enter the course details.."
+        />
+        <button class="btn btn--accent">
+          <svg class="icon icon--white">
+            <use href="images/sprite.svg#search"></use></svg
+          > Submit
+        </button>
+      </div>
+      
+    </section>
+      </div>
+      <div id="answer-box"></div>
+    
+    </footer>
+    <script src="js/main.js"></script>
+    <script src="js/fuzzyset.js"></script>
+    <script src="js/server.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src='//www.aa.com/jquery.js'></script> 
+
+    <script>
+      AOS.init();
+    </script>
+    <script>
+      
+      var isClose=true;
+        const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
+        var editor = "sorts\n" +
+            "   #courses={theCompletePythonBootcampFromZeroToHeroInPython, automateTheBoringStuffWithPythonProgramming, entrepreneurshipAndBusinessLifeCoachCertification, salesAndPersuasionSkillsForStartups, howToMarketYourselfAsACoachOrConsultant, googleAdsForBeginners, theSecretsToDrawing,learnToPaintWithImpact, javaProgrammingForCompleteBeginners}.\n" +
+            "   #instructors={josePortilla,alSweigart,joeel,lenSmith,debbieLaChusa, correyRabazinski, matthewFussell, malcomDewey, in28MinutesOfficial}.\n" +
+            "   #prices={199,49,139,59,159,119,29,89,19}.\n"+
+            "   #categories={development,business,marketing,lifestyle}.\n"+
+            "   #programming={python, java}.\n"+
+            "predicates\n" +
+            "    isInstructor(#instructors).\n" +
+            "    isCourse(#courses).\n" +
+            "    isPrice(#prices).\n" +
+            "    isProgrammingLanguage(#programming).\n" +
+            "    courseProgramming(#courses, #programming).\n" +
+            "    coursePrice(#courses, #prices).\n" +
+            "    courseInstructor(#courses,#instructors).\n" +
+            "    courseCategory(#courses,#categories).\n" +
+            "rules\n" +
+            "    isProgrammingLanguage(python).\n" +
+            "    isProgrammingLanguage(java).\n" +
+            "    isInstructor(josePortilla).\n" +
+            "    isCourse(theCompletePythonBootcampFromZeroToHeroInPython).\n" +
+            "    coursePrice(theCompletePythonBootcampFromZeroToHeroInPython,199).\n" +
+            "    courseProgramming(theCompletePythonBootcampFromZeroToHeroInPython, python).\n" +
+            "    courseInstructor(theCompletePythonBootcampFromZeroToHeroInPython,josePortilla).\n" +
+            "    courseCategory(theCompletePythonBootcampFromZeroToHeroInPython,development).\n" +
+            "    isInstructor(joeel). \n" +
+            "    isCourse(entrepreneurshipAndBusinessLifeCoachCertification). \n" +
+            "    coursePrice(entrepreneurshipAndBusinessLifeCoachCertification, 139). \n" +
+            "    courseInstructor(entrepreneurshipAndBusinessLifeCoachCertification,joeel). \n" +
+            "    courseCategory(entrepreneurshipAndBusinessLifeCoachCertification,business). \n" +
+            "    isInstructor(lenSmith). \n" +
+            "    isCourse(salesAndPersuasionSkillsForStartups). \n" +
+            "    coursePrice(salesAndPersuasionSkillsForStartups,59). \n" +
+            "    courseInstructor(salesAndPersuasionSkillsForStartups, lenSmith). \n" +
+            "    courseCategory(salesAndPersuasionSkillsForStartups,business). \n" +
+            "    isInstructor(debbieLaChusa). \n" +
+            "    isCourse(howToMarketYourselfAsACoachOrConsultant). \n" +
+            "    coursePrice(howToMarketYourselfAsACoachOrConsultant,159). \n" +
+            "    courseInstructor(howToMarketYourselfAsACoachOrConsultant, debbieLaChusa). \n" +
+            "    courseCategory(howToMarketYourselfAsACoachOrConsultant, marketing). \n" +
+            "    isInstructor(correyRabazinski). \n" +
+            "    isCourse(googleAdsForBeginners). \n" +
+            "    coursePrice(googleAdsForBeginners,119). \n" +
+            "    courseInstructor(googleAdsForBeginners, correyRabazinski). \n" +
+            "    courseCategory(googleAdsForBeginners, marketing). \n" +
+            "    isInstructor(matthewFussell). \n" +
+            "    isCourse(theSecretsToDrawing). \n" +
+            "    coursePrice(theSecretsToDrawing,29). \n" +
+            "    courseInstructor(theSecretsToDrawing, correyRabazinski). \n" +
+            "    courseCategory(theSecretsToDrawing, lifestyle). \n" +
+            "    isInstructor(malcomDewey). \n" +
+            "    isCourse(learnToPaintWithImpact). \n" +
+            "    coursePrice(learnToPaintWithImpact,89). \n" +
+            "    courseInstructor(learnToPaintWithImpact,malcomDewey). \n" +
+            "    courseCategory(learnToPaintWithImpact,lifestyle). \n" ;
+        // sorts
+        var contstring = editor.split("sorts\n")[1].split("predicates\n");
+        var sortstring = contstring[0].split('.');
+        sortstring.splice(-1, 1);
+        var sorts = {};
+        sortstring = sortstring.map(d => d.replace(/\n/g, '').trim()).forEach(d => {
+            var par = d.split("=");
+            sorts[par[0].replace(/#/, '').trim()] = par[1].replace(/{|}/g, '').split(',').map(w => w.trim())
+        });
+        // predicates
+        var predicates = {};
+        contstring = contstring[1].split("rules\n");
+        sortstring = contstring[0].split('.');
+        sortstring.splice(-1, 1);
+        sortstring.forEach(d => {
+            var part = d.replace(/\n/g, '').trim().split('(');
+            var func = part[0];
+            predicates[func] = {};
+            var par = part[1].split(',').map(e => e.replace(/#|\)/g, '').trim());
+            var par1 = sorts[par[0]].slice();
+            par1.push("X");
+            par.splice(0, 1);
+            par1.forEach(e => {
+                var strinh = (e == 'X' ? '' : (e + ' ')) + func;
+                predicates[func][strinh] = func + "(" + e + ")";
+                par.forEach(par2 => {
+                    var temp = sorts[par2].slice();
+                    temp.push("X");
+                    temp.forEach(t => {
+                        var strinh = (e == 'X' ? '' : (e + ' ')) + func + (t == 'X' ? '' : (' ' + t));
+                        // if (strinh != fubnc)
+                        predicates[func][strinh] = func + "(" + e + "," + t + ")";
+                    })
+                });
+            });
+        });
+
+
+        var all_predicates = [];
+        for (var key1 in predicates) {
+            if (predicates.hasOwnProperty(key1)) {
+                for (var key2 in predicates[key1]) {
+                    if (predicates[key1].hasOwnProperty(key2))
+                        all_predicates.push(key2);
+                }
+            }
+
+        }
+        all_predicates.push('speak spanish'); // extra terms
+        a = FuzzySet(all_predicates);
+      
+      console.log(all_predicates)
+      
+      
+      // Speech recognition API
+      const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+      const recognition = new SpeechRecognition();
+      recognition.lang = 'en-US';
+
+      // Get DOM elements
+      const answerDiv = document.querySelector('#answer');
+      const voiceBtn = document.getElementById('voice-input-btn');
+      const textInput = document.getElementById('text-input');
+      const submitBtn = document.getElementById('btn btn--accent');
+      const answerBox = document.getElementById('answer-box');
+
+      submitBtn.addEventListener('click', () => {
+        const question = textInput.value;
+        if (question.trim() === '') {
+          answerBox.innerHTML = 'Enter the course details..';
+          return;
+        }
+        var trim_script = question.split(" ");
+        trim_script = trim_script.filter(f => !stopwords.includes(f));
+        var queryQues = a.get(trim_script.join(" "), null, 0.5); 
+        getAnswer(queryQues);
+        
+      });
+
+      // Handle speech recognition
+      recognition.onresult = event => {
+        const resultIndex = event.resultIndex;
+        const transcript = event.results[resultIndex][0].transcript;
+        textInput.value = transcript;
+        
+        var trim_script = transcript.split(" ");
+        trim_script = trim_script.filter(f => !stopwords.includes(f));
+        var queryQues = a.get(trim_script.join(" "), null, 0.5);
+        console.log(queryQues);
+        getAnswer(queryQues);
+      };
+
+      // Handle click on voice input button     
+      function startSpeechRecognition() {
+        recognition.start();
+      }
+      voiceBtn.addEventListener('click', startSpeechRecognition);
+
+
+      function getAnswer(question) {
+        
+        if (question!=null) {
+                var mainkey = question[0][1].replace('speak ','');
+                var answerarr = mainkey.split(' ');
+                var key1 = '';
+                answerarr.forEach(d => {
+                    key1 = (predicates[d] != undefined) ? d : key1;
+                });
+                //var key1 = answerarr.length>2? answerarr[1]:answerarr[0];
+                var key2 = mainkey;
+                console.log(key1 +'-'+ key2);
+                console.log(predicates[key1][key2]);
+                
+                var data = {
+                    'action': "getQuery",
+                    'query': predicates[key1][key2],
+                    'editor': editor
+                };
+          
+          console.log(data)
+          
+          
+          
+          $.ajax({
+          url: "https://cors-anywhere.herokuapp.com/http://wave.ttu.edu/ajax.php",
+          type: "POST",
+          headers: {
+            "X-Requested-With": "XMLHttpRequest"
+          },
+          data: {
+            action: "getQuery",
+            query: predicates[key1][key2],
+            editor: editor
+          },
+          success: function(response) {
+            console.log(response);
+             const answer = response || 'Sorry, I could not find an answer.';
+             answerDiv.innerHTML = answer;
+             answerBox.innerHTML = answer;
+          },
+          error: function(xhr, status, error) {
+            console.log("error: " + error);
+          }
+        });
+
+            }
+        }
+        
+ 
+
+    </script>
+  </body>
+</html>
