@@ -1,5 +1,6 @@
-const corsAnywhere = require('cors-anywhere');
-
+// const corsAnywhere = require('cors-anywhere');
+const corsAnywhere = require('cors-anywhere')
+console.log(corsAnywhere)
 const host = '0.0.0.0';
 const port = 8080;
 

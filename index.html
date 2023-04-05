@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Deploy your websites in less than 60 seconds."
+      content=" websites to find course in less than 60 seconds."
     />
     <meta property="og:title" content="Find Course... " />
     <meta property="og:description" content="Find Course... " />
@@ -77,18 +77,19 @@
         <input
           type="text"
           class="input"
+          id="text-input"
           placeholder="Enter the course details.."
         />
-        <button class="btn btn--accent">
+        <button class="btn btn--accent" id="submit-btn">
           <svg class="icon icon--white">
-            <use href="images/sprite.svg#search"></use></svg
-          > Submit
+            <use href="images/sprite.svg#search"></use></svg > Submit
         </button>
       </div>
-      
-    </section>
-      </div>
+      </section>
+      <div id="answer"></div>
       <div id="answer-box"></div>
+      </div>
+      
     
     </footer>
     <script src="js/main.js"></script>
@@ -160,6 +161,7 @@
             "    coursePrice(learnToPaintWithImpact,89). \n" +
             "    courseInstructor(learnToPaintWithImpact,malcomDewey). \n" +
             "    courseCategory(learnToPaintWithImpact,lifestyle). \n" ;
+
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
         var sortstring = contstring[0].split('.');
@@ -211,7 +213,8 @@
         all_predicates.push('speak spanish'); // extra terms
         a = FuzzySet(all_predicates);
       
-      console.log(all_predicates)
+      // console.log(all_predicates)
+      console.log("The value of a",a)
       
       
       // Speech recognition API
@@ -223,18 +226,25 @@
       const answerDiv = document.querySelector('#answer');
       const voiceBtn = document.getElementById('voice-input-btn');
       const textInput = document.getElementById('text-input');
-      const submitBtn = document.getElementById('btn btn--accent');
+      const submitBtn = document.getElementById('submit-btn');
       const answerBox = document.getElementById('answer-box');
 
       submitBtn.addEventListener('click', () => {
+        alert('Button clicked');
+        console.log("Button clicked")
         const question = textInput.value;
         if (question.trim() === '') {
-          answerBox.innerHTML = 'Enter the course details..';
+          answerBox.innerHTML = 'Please ask a question.';
           return;
         }
+        console.log("questionr",question);
         var trim_script = question.split(" ");
+        console.log("trim_script",trim_script);
         trim_script = trim_script.filter(f => !stopwords.includes(f));
+        console.log("trim_script after filter",trim_script);
         var queryQues = a.get(trim_script.join(" "), null, 0.5); 
+        console.log("From Button event calling get answer");
+        console.log("From Button event calling get answer query question",queryQues);
         getAnswer(queryQues);
         
       });
@@ -248,7 +258,7 @@
         var trim_script = transcript.split(" ");
         trim_script = trim_script.filter(f => !stopwords.includes(f));
         var queryQues = a.get(trim_script.join(" "), null, 0.5);
-        console.log(queryQues);
+        console.log("Query answer",queryQues);
         getAnswer(queryQues);
       };
 
@@ -260,7 +270,7 @@
 
 
       function getAnswer(question) {
-        
+        console.log("we are going to gte answer")
         if (question!=null) {
                 var mainkey = question[0][1].replace('speak ','');
                 var answerarr = mainkey.split(' ');
@@ -295,7 +305,7 @@
             editor: editor
           },
           success: function(response) {
-            console.log(response);
+            console.log("response",response);
              const answer = response || 'Sorry, I could not find an answer.';
              answerDiv.innerHTML = answer;
              answerBox.innerHTML = answer;
@@ -307,9 +317,8 @@
 
             }
         }
-        
- 
-
     </script>
   </body>
 </html>
+
+
