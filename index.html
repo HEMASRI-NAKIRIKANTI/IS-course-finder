@@ -110,7 +110,7 @@
         var editor = "sorts\n" +
             "  #courses={theCompletePythonBootcampFromZeroToHeroInPython, automateTheBoringStuffWithPythonProgramming, entrepreneurshipAndBusinessLifeCoachCertification, salesAndPersuasionSkillsForStartups, howToMarketYourselfAsACoachOrConsultant, googleAdsForBeginners, theSecretsToDrawing,learnToPaintWithImpact, javaProgrammingForCompleteBeginners}.\n"+
             "  #instructors={josePortilla,alSweigart,joeel,lenSmith,debbieLaChusa, correyRabazinski, matthewFussell, malcomDewey, in28MinutesOfficial}.\n"+
-            "  #prices={199,49,139,59,159,119,29,89,19}.\n"+
+            "  #prices={199,49,139,59,159,119,29,89,19,9}.\n"+
             "  #categories={development,business,marketing,lifestyle}.\n"+
             "  #duration={22,11,33,9,3,5,6,7}.\n"+
             "  #programming={python, java}.\n"+
@@ -124,7 +124,7 @@
             "  courseprice(#courses, #prices).\n"+
             "  courseinstructor(#courses,#instructors).\n"+
             "  coursecategory(#courses,#categories).\n"+
-            "  courseduration(#courses,#duration).\n"+
+            "  duration(#courses,#duration).\n"+
             "  courseavailableon(#courses,#vendor).\n"+
             "rules\n" +
             "  programminglanguage(python).\n"+
@@ -135,7 +135,7 @@
             "  programmingcourse(theCompletePythonBootcampFromZeroToHeroInPython, python).\n"+
             "  courseinstructor(theCompletePythonBootcampFromZeroToHeroInPython,josePortilla).\n"+
             "  coursecategory(theCompletePythonBootcampFromZeroToHeroInPython,development).\n"+
-            "  courseduration(theCompletePythonBootcampFromZeroToHeroInPython, 22).\n"+
+            "  duration(theCompletePythonBootcampFromZeroToHeroInPython, 22).\n"+
             "  courseavailableon(theCompletePythonBootcampFromZeroToHeroInPython,udemy).\n"+
             "  instructor(alSweigart).\n"+
             "  course(automateTheBoringStuffWithPythonProgramming).\n"+
@@ -143,56 +143,56 @@
             "  courseprice(automateTheBoringStuffWithPythonProgramming,49).\n"+
             "  courseinstructor(automateTheBoringStuffWithPythonProgramming, alSweigart).\n"+
             "  coursecategory(automateTheBoringStuffWithPythonProgramming, development).\n"+
-            "  courseduration(automateTheBoringStuffWithPythonProgramming,9).\n"+
+            "  duration(automateTheBoringStuffWithPythonProgramming,9).\n"+
             "  courseavailableon(automateTheBoringStuffWithPythonProgramming,udemy).\n"+
             "  instructor(in28MinutesOfficial).\n"+
             "  course(javaProgrammingForCompleteBeginners).\n"+
             "  programmingcourse(javaProgrammingForCompleteBeginners, java).\n"+
-            "  courseprice(javaProgrammingForCompleteBeginners, 19).\n"+
+            "  courseprice(javaProgrammingForCompleteBeginners, 9).\n"+
             "  courseinstructor(javaProgrammingForCompleteBeginners, in28MinutesOfficial).\n"+
             "  coursecategory(javaProgrammingForCompleteBeginners, development ).\n"+
-            "  courseduration(javaProgrammingForCompleteBeginners, 33).\n"+
+            "  duration(javaProgrammingForCompleteBeginners, 33).\n"+
             "  instructor(joeel).\n"+
             "  course(entrepreneurshipAndBusinessLifeCoachCertification).\n"+
             "  courseprice(entrepreneurshipAndBusinessLifeCoachCertification, 139).\n"+
             "  courseinstructor(entrepreneurshipAndBusinessLifeCoachCertification,joeel).\n"+
             "  coursecategory(entrepreneurshipAndBusinessLifeCoachCertification,business).\n"+
-            "  courseduration(entrepreneurshipAndBusinessLifeCoachCertification, 11).\n"+
+            "  duration(entrepreneurshipAndBusinessLifeCoachCertification, 11).\n"+
             "  courseavailableon(entrepreneurshipAndBusinessLifeCoachCertification, udemy).\n"+
             "  instructor(lenSmith).\n"+
             "  course(salesAndPersuasionSkillsForStartups).\n"+
             "  courseprice(salesAndPersuasionSkillsForStartups,59).\n"+
             "  courseinstructor(salesAndPersuasionSkillsForStartups, lenSmith).\n"+
             "  coursecategory(salesAndPersuasionSkillsForStartups,business).\n"+
-            "  courseduration(salesAndPersuasionSkillsForStartups,3).\n"+
+            "  duration(salesAndPersuasionSkillsForStartups,3).\n"+
             "  courseavailableon(salesAndPersuasionSkillsForStartups,udemy).\n"+
             "  instructor(debbieLaChusa).\n"+
             "  course(howToMarketYourselfAsACoachOrConsultant).\n"+
             "  courseprice(howToMarketYourselfAsACoachOrConsultant,159).\n"+
             "  courseinstructor(howToMarketYourselfAsACoachOrConsultant, debbieLaChusa).\n"+
             "  coursecategory(howToMarketYourselfAsACoachOrConsultant, marketing).\n"+
-            "  courseduration(howToMarketYourselfAsACoachOrConsultant, 5).\n"+
+            "  duration(howToMarketYourselfAsACoachOrConsultant, 5).\n"+
             "  courseavailableon(howToMarketYourselfAsACoachOrConsultant, udemy).\n"+
             "  instructor(correyRabazinski).\n"+
             "  course(googleAdsForBeginners).\n"+
             "  courseprice(googleAdsForBeginners,119).\n"+
             "  courseinstructor(googleAdsForBeginners, correyRabazinski).\n"+
             "  coursecategory(googleAdsForBeginners, marketing).\n"+
-            "  courseduration(googleAdsForBeginners,5).\n"+
+            "  duration(googleAdsForBeginners,5).\n"+
             "  courseavailableon(googleAdsForBeginners,udemy).\n"+
             "  instructor(matthewFussell).\n"+
             "  course(theSecretsToDrawing).\n"+
             "  courseprice(theSecretsToDrawing,29).\n"+
             "  courseinstructor(theSecretsToDrawing, correyRabazinski).\n"+
             "  coursecategory(theSecretsToDrawing, lifestyle).\n"+
-            "  courseduration(theSecretsToDrawing,6).\n"+
+            "  duration(theSecretsToDrawing,6).\n"+
             "  courseavailableon(theSecretsToDrawing,udemy).\n"+
             "  instructor(malcomDewey).\n"+
             "  course(learnToPaintWithImpact).\n"+
             "  courseprice(learnToPaintWithImpact,89).\n"+
             "  courseinstructor(learnToPaintWithImpact,malcomDewey).\n"+
             "  coursecategory(learnToPaintWithImpact,lifestyle).\n"+
-            "  courseduration(learnToPaintWithImpact, 7).\n"+
+            "  duration(learnToPaintWithImpact, 7).\n"+
             "  courseavailableon(learnToPaintWithImpact,udemy).\n";
 
         // sorts
