@@ -94,11 +94,11 @@
     </footer>
     <script src="js/main.js"></script>
     <script src="js/fuzzyset.js"></script>
-    <script src="js/server.js"></script>
+    <!-- <script src="js/server.js"></script> -->
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src='//www.aa.com/jquery.js'></script> 
+    <!-- <script src='//www.aa.com/jquery.js'></script>  -->
 
     <script>
       AOS.init();
@@ -106,61 +106,94 @@
     <script>
       
       var isClose=true;
-        const stopwords = ["of", "the", "a", "an", "any", "is", "can", "who", "what", "why", "whom"];
+        const stopwords = ["of", "the", "a", "an", "are","any", "is", "can", "who", "what", "why", "whom","available"];
         var editor = "sorts\n" +
-            "   #courses={theCompletePythonBootcampFromZeroToHeroInPython, automateTheBoringStuffWithPythonProgramming, entrepreneurshipAndBusinessLifeCoachCertification, salesAndPersuasionSkillsForStartups, howToMarketYourselfAsACoachOrConsultant, googleAdsForBeginners, theSecretsToDrawing,learnToPaintWithImpact, javaProgrammingForCompleteBeginners}.\n" +
-            "   #instructors={josePortilla,alSweigart,joeel,lenSmith,debbieLaChusa, correyRabazinski, matthewFussell, malcomDewey, in28MinutesOfficial}.\n" +
-            "   #prices={199,49,139,59,159,119,29,89,19}.\n"+
-            "   #categories={development,business,marketing,lifestyle}.\n"+
-            "   #programming={python, java}.\n"+
+            "  #courses={theCompletePythonBootcampFromZeroToHeroInPython, automateTheBoringStuffWithPythonProgramming, entrepreneurshipAndBusinessLifeCoachCertification, salesAndPersuasionSkillsForStartups, howToMarketYourselfAsACoachOrConsultant, googleAdsForBeginners, theSecretsToDrawing,learnToPaintWithImpact, javaProgrammingForCompleteBeginners}.\n"+
+            "  #instructors={josePortilla,alSweigart,joeel,lenSmith,debbieLaChusa, correyRabazinski, matthewFussell, malcomDewey, in28MinutesOfficial}.\n"+
+            "  #prices={199,49,139,59,159,119,29,89,19}.\n"+
+            "  #categories={development,business,marketing,lifestyle}.\n"+
+            "  #duration={22,11,33,9,3,5,6,7}.\n"+
+            "  #programming={python, java}.\n"+
+            "  #vendor={udemy}.\n"+
             "predicates\n" +
-            "    isInstructor(#instructors).\n" +
-            "    isCourse(#courses).\n" +
-            "    isPrice(#prices).\n" +
-            "    isProgrammingLanguage(#programming).\n" +
-            "    courseProgramming(#courses, #programming).\n" +
-            "    coursePrice(#courses, #prices).\n" +
-            "    courseInstructor(#courses,#instructors).\n" +
-            "    courseCategory(#courses,#categories).\n" +
+            "  instructor(#instructors).\n"+
+            "  course(#courses).\n"+
+            "  price(#prices).\n"+
+            "  programminglanguage(#programming).\n"+
+            "  programmingcourse(#courses, #programming).\n"+
+            "  courseprice(#courses, #prices).\n"+
+            "  courseinstructor(#courses,#instructors).\n"+
+            "  coursecategory(#courses,#categories).\n"+
+            "  courseduration(#courses,#duration).\n"+
+            "  courseavailableon(#courses,#vendor).\n"+
             "rules\n" +
-            "    isProgrammingLanguage(python).\n" +
-            "    isProgrammingLanguage(java).\n" +
-            "    isInstructor(josePortilla).\n" +
-            "    isCourse(theCompletePythonBootcampFromZeroToHeroInPython).\n" +
-            "    coursePrice(theCompletePythonBootcampFromZeroToHeroInPython,199).\n" +
-            "    courseProgramming(theCompletePythonBootcampFromZeroToHeroInPython, python).\n" +
-            "    courseInstructor(theCompletePythonBootcampFromZeroToHeroInPython,josePortilla).\n" +
-            "    courseCategory(theCompletePythonBootcampFromZeroToHeroInPython,development).\n" +
-            "    isInstructor(joeel). \n" +
-            "    isCourse(entrepreneurshipAndBusinessLifeCoachCertification). \n" +
-            "    coursePrice(entrepreneurshipAndBusinessLifeCoachCertification, 139). \n" +
-            "    courseInstructor(entrepreneurshipAndBusinessLifeCoachCertification,joeel). \n" +
-            "    courseCategory(entrepreneurshipAndBusinessLifeCoachCertification,business). \n" +
-            "    isInstructor(lenSmith). \n" +
-            "    isCourse(salesAndPersuasionSkillsForStartups). \n" +
-            "    coursePrice(salesAndPersuasionSkillsForStartups,59). \n" +
-            "    courseInstructor(salesAndPersuasionSkillsForStartups, lenSmith). \n" +
-            "    courseCategory(salesAndPersuasionSkillsForStartups,business). \n" +
-            "    isInstructor(debbieLaChusa). \n" +
-            "    isCourse(howToMarketYourselfAsACoachOrConsultant). \n" +
-            "    coursePrice(howToMarketYourselfAsACoachOrConsultant,159). \n" +
-            "    courseInstructor(howToMarketYourselfAsACoachOrConsultant, debbieLaChusa). \n" +
-            "    courseCategory(howToMarketYourselfAsACoachOrConsultant, marketing). \n" +
-            "    isInstructor(correyRabazinski). \n" +
-            "    isCourse(googleAdsForBeginners). \n" +
-            "    coursePrice(googleAdsForBeginners,119). \n" +
-            "    courseInstructor(googleAdsForBeginners, correyRabazinski). \n" +
-            "    courseCategory(googleAdsForBeginners, marketing). \n" +
-            "    isInstructor(matthewFussell). \n" +
-            "    isCourse(theSecretsToDrawing). \n" +
-            "    coursePrice(theSecretsToDrawing,29). \n" +
-            "    courseInstructor(theSecretsToDrawing, correyRabazinski). \n" +
-            "    courseCategory(theSecretsToDrawing, lifestyle). \n" +
-            "    isInstructor(malcomDewey). \n" +
-            "    isCourse(learnToPaintWithImpact). \n" +
-            "    coursePrice(learnToPaintWithImpact,89). \n" +
-            "    courseInstructor(learnToPaintWithImpact,malcomDewey). \n" +
-            "    courseCategory(learnToPaintWithImpact,lifestyle). \n" ;
+            "  programminglanguage(python).\n"+
+            "  programminglanguage(java).\n"+
+            "  instructor(josePortilla).\n"+
+            "  course(theCompletePythonBootcampFromZeroToHeroInPython).\n"+
+            "  courseprice(theCompletePythonBootcampFromZeroToHeroInPython,199).\n"+
+            "  programmingcourse(theCompletePythonBootcampFromZeroToHeroInPython, python).\n"+
+            "  courseinstructor(theCompletePythonBootcampFromZeroToHeroInPython,josePortilla).\n"+
+            "  coursecategory(theCompletePythonBootcampFromZeroToHeroInPython,development).\n"+
+            "  courseduration(theCompletePythonBootcampFromZeroToHeroInPython, 22).\n"+
+            "  courseavailableon(theCompletePythonBootcampFromZeroToHeroInPython,udemy).\n"+
+            "  instructor(alSweigart).\n"+
+            "  course(automateTheBoringStuffWithPythonProgramming).\n"+
+            "  programmingcourse(theCompletePythonBootcampFromZeroToHeroInPython, python).\n"+
+            "  courseprice(automateTheBoringStuffWithPythonProgramming,49).\n"+
+            "  courseinstructor(automateTheBoringStuffWithPythonProgramming, alSweigart).\n"+
+            "  coursecategory(automateTheBoringStuffWithPythonProgramming, development).\n"+
+            "  courseduration(automateTheBoringStuffWithPythonProgramming,9).\n"+
+            "  courseavailableon(automateTheBoringStuffWithPythonProgramming,udemy).\n"+
+            "  instructor(in28MinutesOfficial).\n"+
+            "  course(javaProgrammingForCompleteBeginners).\n"+
+            "  programmingcourse(javaProgrammingForCompleteBeginners, java).\n"+
+            "  courseprice(javaProgrammingForCompleteBeginners, 19).\n"+
+            "  courseinstructor(javaProgrammingForCompleteBeginners, in28MinutesOfficial).\n"+
+            "  coursecategory(javaProgrammingForCompleteBeginners, development ).\n"+
+            "  courseduration(javaProgrammingForCompleteBeginners, 33).\n"+
+            "  instructor(joeel).\n"+
+            "  course(entrepreneurshipAndBusinessLifeCoachCertification).\n"+
+            "  courseprice(entrepreneurshipAndBusinessLifeCoachCertification, 139).\n"+
+            "  courseinstructor(entrepreneurshipAndBusinessLifeCoachCertification,joeel).\n"+
+            "  coursecategory(entrepreneurshipAndBusinessLifeCoachCertification,business).\n"+
+            "  courseduration(entrepreneurshipAndBusinessLifeCoachCertification, 11).\n"+
+            "  courseavailableon(entrepreneurshipAndBusinessLifeCoachCertification, udemy).\n"+
+            "  instructor(lenSmith).\n"+
+            "  course(salesAndPersuasionSkillsForStartups).\n"+
+            "  courseprice(salesAndPersuasionSkillsForStartups,59).\n"+
+            "  courseinstructor(salesAndPersuasionSkillsForStartups, lenSmith).\n"+
+            "  coursecategory(salesAndPersuasionSkillsForStartups,business).\n"+
+            "  courseduration(salesAndPersuasionSkillsForStartups,3).\n"+
+            "  courseavailableon(salesAndPersuasionSkillsForStartups,udemy).\n"+
+            "  instructor(debbieLaChusa).\n"+
+            "  course(howToMarketYourselfAsACoachOrConsultant).\n"+
+            "  courseprice(howToMarketYourselfAsACoachOrConsultant,159).\n"+
+            "  courseinstructor(howToMarketYourselfAsACoachOrConsultant, debbieLaChusa).\n"+
+            "  coursecategory(howToMarketYourselfAsACoachOrConsultant, marketing).\n"+
+            "  courseduration(howToMarketYourselfAsACoachOrConsultant, 5).\n"+
+            "  courseavailableon(howToMarketYourselfAsACoachOrConsultant, udemy).\n"+
+            "  instructor(correyRabazinski).\n"+
+            "  course(googleAdsForBeginners).\n"+
+            "  courseprice(googleAdsForBeginners,119).\n"+
+            "  courseinstructor(googleAdsForBeginners, correyRabazinski).\n"+
+            "  coursecategory(googleAdsForBeginners, marketing).\n"+
+            "  courseduration(googleAdsForBeginners,5).\n"+
+            "  courseavailableon(googleAdsForBeginners,udemy).\n"+
+            "  instructor(matthewFussell).\n"+
+            "  course(theSecretsToDrawing).\n"+
+            "  courseprice(theSecretsToDrawing,29).\n"+
+            "  courseinstructor(theSecretsToDrawing, correyRabazinski).\n"+
+            "  coursecategory(theSecretsToDrawing, lifestyle).\n"+
+            "  courseduration(theSecretsToDrawing,6).\n"+
+            "  courseavailableon(theSecretsToDrawing,udemy).\n"+
+            "  instructor(malcomDewey).\n"+
+            "  course(learnToPaintWithImpact).\n"+
+            "  courseprice(learnToPaintWithImpact,89).\n"+
+            "  courseinstructor(learnToPaintWithImpact,malcomDewey).\n"+
+            "  coursecategory(learnToPaintWithImpact,lifestyle).\n"+
+            "  courseduration(learnToPaintWithImpact, 7).\n"+
+            "  courseavailableon(learnToPaintWithImpact,udemy).\n";
 
         // sorts
         var contstring = editor.split("sorts\n")[1].split("predicates\n");
@@ -297,7 +330,9 @@
           url: "https://cors-anywhere.herokuapp.com/http://wave.ttu.edu/ajax.php",
           type: "POST",
           headers: {
-            "X-Requested-With": "XMLHttpRequest"
+            "X-Requested-With": "XMLHttpRequest",
+            "Access-Control-Allow-Origin" :"*",
+            "Access-Control-Allow-Methods" :"GET,POST"
           },
           data: {
             action: "getQuery",
